@@ -31,4 +31,11 @@ public class ApplicationTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/history").contentType(MediaType.ALL)).
                 andExpect(content().string(containsString("testingAgain")));
     }
+
+    @Test
+    void testHistory3() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.post("/api?post_input_text="));
+        mockMvc.perform(MockMvcRequestBuilders.get("/history").contentType(MediaType.ALL)).
+                andExpect(content().string(containsString("testingAgain")));
+    }
 }
